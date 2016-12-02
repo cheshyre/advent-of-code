@@ -6,12 +6,14 @@ x = 0
 y = 0
 
 for i in input_l:
+    # Turn
     if i[0] == 'L':
         state -= 1
     else:
         state += 1
     state = state % 4
 
+    # Move
     if state == 0:
         y += int(i[1:])
     elif state == 1:
