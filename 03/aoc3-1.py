@@ -15,6 +15,3 @@ with open(filename) as f:
             num_valid += 1
 
 print(num_valid)
-
-
-
