@@ -57,8 +57,3 @@ with open(filename) as f:
                 display[i][col] = alt[(i - offset) % len(display)]
 print_display(display)
 print(m2l(display).count(1))
-
-
-
-
-
