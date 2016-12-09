@@ -41,18 +41,14 @@ with open(filename) as f:
             line = line.replace('rotate row y=', '')
             row = int(line.split(' ')[0])
             offset = int(line.split(' ')[2])
-            alt = []
-            for i in range(len(display[row])):
-                alt.append(display[row][(i - offset) % len(display[row])])
+            alt = [display[row][(i - offset) % len(display[row])] for i in range(len(display[row]))]
             for i in range(len(display[row])):
                 display[row][i] = alt[i]
         elif 'rotate column' in line:
             line = line.replace('rotate column x=', '')
             col = int(line.split(' ')[0])
             offset = int(line.split(' ')[2])
-            alt = []
-            for i in range(len(display)):
-                alt.append(display[i][col])
+            alt = [display[i][col] for i in range(len(display))]
             for i in range(len(display)):
                 display[i][col] = alt[(i - offset) % len(display)]
 print_display(display)
