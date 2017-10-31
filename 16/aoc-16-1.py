@@ -21,4 +21,4 @@ checksum = data[:disc_size]
 while len(checksum) % 2 == 0:
     checksum = calc_checksum(checksum)
 
-print(checksum)
+print('The final checksum is {}.'.format(checksum))
