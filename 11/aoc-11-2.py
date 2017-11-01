@@ -129,5 +129,5 @@ while not done:
                 final = z
     count += 1
 print('{} nodes expanded.'.format(count))
-print('The minimum number of mooves is {}.'.format(final.turn))
+print('The minimum number of moves is {}.'.format(final.turn))
 
