@@ -1,5 +1,4 @@
-# I wrote this while the previous part 2 solution was still solving the problem.
-# The difference in performance is massive.
+# Much faster and more elegant than brute force solution
 
 def remove(array, even):
     if even:
