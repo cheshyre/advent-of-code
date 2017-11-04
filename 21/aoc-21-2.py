@@ -24,6 +24,13 @@ def rot_left(arr, n):
     n = n % len(arr)
     return arr[n:] + arr[:n]
 
+def rot_letter_back(arr, a):
+    for i in range(len(arr)):
+        if rot_letter(rot_left(arr, i), a) == arr:
+            return rot_left(arr, i)
+    print('Something bad happened.')
+    return arr
+
 def rot_letter(arr, a):
     index = arr.index(a)
     if index >= 4:
@@ -48,24 +55,24 @@ def mov(arr, x, y):
     arr[y:y] = [a]
     return arr
 
-initial_string = 'abcdefgh'
+initial_string = 'fbgdceah'
 password = [x for x in initial_string]
 
-for x in instructions:
+for x in instructions[::-1]:
     tokens = x.split()
     if tokens[0] == 'swap' and tokens[1] == 'position':
         password = swap_pos(password, int(tokens[2]), int(tokens[5]))
     elif tokens[0] == 'swap' and tokens[1] == 'letter':
         password = swap_letter(password, tokens[2], tokens[5])
     elif tokens[0] == 'rotate' and tokens[1] == 'right':
-        password = rot_right(password, int(tokens[2]))
-    elif tokens[0] == 'rotate' and tokens[1] == 'left':
         password = rot_left(password, int(tokens[2]))
+    elif tokens[0] == 'rotate' and tokens[1] == 'left':
+        password = rot_right(password, int(tokens[2]))
     elif tokens[0] == 'rotate':
-        password = rot_letter(password, tokens[-1])
+        password = rot_letter_back(password, tokens[-1])
     elif tokens[0] == 'reverse':
         password = reverse(password, int(tokens[2]), int(tokens[4]))
     else:
-        password = mov(password, int(tokens[2]), int(tokens[5]))
+        password = mov(password, int(tokens[5]), int(tokens[2]))
 
-print('The scrambled password is {}.'.format(''.join(password)))
+print('The unscrambled password is {}.'.format(''.join(password)))
