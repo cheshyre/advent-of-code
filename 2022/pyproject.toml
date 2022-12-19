@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "2022"
+version = "0.1.0"
+description = ""
+authors = ["Matthias Heinz <heinz.matthias.3@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.24.0"
+scipy = "^1.9.3"
+matplotlib = "^3.6.2"
+tqdm = "^4.64.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
